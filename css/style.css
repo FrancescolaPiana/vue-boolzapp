@@ -44,15 +44,62 @@ img{
     font-size: x-large;
 }
 
+
+/* chatbox and messages */
 #chatbox{
-    height: 1200px;
+    height: 1000px;    
     width: 100%;
     overflow-y: scroll;
     background-image: url(../img/mine.jpg);
 }
-
 .send{
-    background-color: #D5F9BA; 
-    margin: 20px;
-    
+
+    padding: 20px;
+    display: flex;
+    justify-content: end;
+}
+.sendmsg{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #D5F9BA;
+    max-width: 50%;
+    padding: 8px 16px;
+    border-radius: 10px;
+}
+.receive{ 
+    padding: 20px;
+    display: flex;
+    justify-content: start;
+}
+.receivemsg{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    max-width: 50%;
+    padding: 8px 16px;
+    border-radius: 10px;
+}
+.hour{
+    font-size: 9px;
+    font-style: oblique;
+    font-weight: 700;
+    align-self: flex-end;
+    margin-right: -10px;
+    color: rgba(0, 0, 0, 0.500);
+}
+.abs{
+    position: absolute;
+    top: -6px;
+    right: -4px;
+    transform: rotate(90deg);
+    color: #D5F9BA;
+}
+.abs2{
+    position: absolute;
+    top: -6px;
+    left: -5px;
+    transform: rotate(90deg);
+    color: #ffffff;
 }
