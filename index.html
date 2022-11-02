@@ -14,13 +14,67 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    
     <div id="foil"  class="d-flex justify-content-center align-items-center">
         <div id="all" class="d-flex" >
             <div id="aside">
-                <!-- milestone 2 listvfor users -->
+                <!-- user -->
+                <div class="container">
+                    <div class="row">
+                        <div id="user" class="col gx gap-3 d-flex align-items-center constrictor">
+                            <img src="./img/avatar_io.jpg" class="" alt="">
+                            <div class="align-self-center">
+                                <div class="name fw-bold">Francesco</div>
+                                <!-- <div class="lastmsg">Ultimo accesso oggi alle: 18:00  </div> -->
+                            </div>
+                        </div>
+                        <div id="buttons2" class=" custom col gx gap-3 d-flex justify-content-end align-items-center constrictor">
+                            <a href=""><i class="iconscolor fa-solid fa-circle-notch"></i></a>
+                            <a href=""><i class="iconscolor fa-solid fa-message"></i></a>
+                            <a href=""><i class="iconscolor fa-solid fa-ellipsis-vertical"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- notifiche -->
+                <div class="container">
+                    <div class="row bgnotif">
+                        <div class="col gap-3 d-flex align-items-center constrictor c1">
+                            <div class="bellbord">
+                                <i class="fa-solid fa-bell-slash clr0"></i>
+                            </div>
+                            <div class="align-self-center">
+                                <div class="name">Ricevi notifiche di nuovi messaggi</div>
+                                <a class="link1" href="">Attiva notifiche desktop</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- searchbar -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col d-flex align-items-center constricto c2">
+                            <a class="search" href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+                            <input id="research" type="text" placeholder="Cerca o inizia una nuova chat" >
+                        </div>
+                    </div>
+                </div>
+
+                <!-- contacts -->
+                <div class="container">
+                    <div class="row" v-for="(profile,i) in contacts" >
+                        <div class="col gap-3 d-flex align-items-center constrictor">
+                            <img :src="`./img/avatar${contacts[i].avatar}.jpg`" src="" class="" alt="">
+                            <div class="align-self-center">
+                                <div class="name fw-bold">{{contacts[i].name}}</div>
+                                <div class="lastmsg">{{contacts[i].messages[0].message}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
     
+
             <div id="main" class="d-flex flex-column justify-content-between">
                 <!-- milestone 1 grapichs and messages -->
                 <div class="container">
@@ -64,23 +118,31 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- sendmsg facsimile -->
+                        <div class="row">
+                            <div class="send">
+                                <div class="sendmsg">
+                                    Molto bene almeno pero ora.
+                                    <div class="hour">15:13</div>
+                                    <div class="abs"><i class="fa-solid fa-play"></i></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
 
                 <div class="container">
                     <div class="row">
-                        <div id="usercarosel" class="col gx gap-3 d-flex align-items-center constrictor">
-                            <img src="./img/avatar_1.jpg" class="" alt="">
-                            <div class="align-self-center">
-                                <div class="name fw-bold">FFrank 'o Pop</div>
-                                <div class="lastmsg">Ultimo accesso oggi alle: 18:00  </div>
-                            </div>
+                        <div id="smile" class="col-1 d-flex justify-content-start align-items-center constrictor2">
+                            <a href=""><i class="iconscolor fa-regular fa-face-smile"></i></a>
                         </div>
-                        <div id="buttons" class=" custom col gx gap-3 d-flex justify-content-end align-items-center constrictor">
-                            <a href=""><i class="iconscolor fa-solid fa-magnifying-glass"></i></a>
-                            <a href=""><i class="iconscolor fa-solid fa-paperclip"></i></a>
-                            <a href=""><i class="iconscolor fa-solid fa-ellipsis-vertical"></i></a>
+                        <div  class="col gx gap-3 d-flex justify-content-center align-items-center constrictor2">
+                            <input id="input" type="text" name="" id="">
+                        </div>
+                        <div id="rec" class="col-1 d-flex justify-content-end align-items-center constrictor2">
+                            <a href=""><i class="iconscolor fa-solid fa-microphone"></i></a>
                         </div>
                     </div>
                 </div>
