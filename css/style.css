@@ -1,0 +1,58 @@
+#foil{
+    height: 100vh;
+    background: linear-gradient(to bottom, rgb(0, 150, 136) 15% , rgb(221, 219, 210) 15% ) ;
+
+}
+#all{
+    margin: 20px;
+    width: 1600px;
+    height: calc(100vh - 40px) ;
+    background-color: rgb(234, 234, 234);
+}
+#aside{
+    background-color: rgb(122, 206, 206);
+    height: 100%;
+    width: 35%;
+}
+#main{
+    /* background-color: rgb(166, 117, 211); */
+    height: 100%;
+    width: 65%;
+}
+
+#try{
+    width: 200px;
+    height: 200px;
+    background-color: black;
+}
+
+img{
+    height: 70%;
+    border-radius: 50%;
+}
+
+.custom{
+    margin-right: 20px;
+}
+
+.constrictor{
+    height: 80px;
+}
+
+.iconscolor{
+    color: gray;
+    font-size: x-large;
+}
+
+#chatbox{
+    height: 1200px;
+    width: 100%;
+    overflow-y: scroll;
+    background-image: url(../img/mine.jpg);
+}
+
+.send{
+    background-color: #D5F9BA; 
+    margin: 20px;
+    
+}
