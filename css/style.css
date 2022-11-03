@@ -1,12 +1,13 @@
 #foil{
     height: 100vh;
     background: linear-gradient(to bottom, rgb(0, 150, 136) 15% , rgb(221, 219, 210) 15% ) ;
+    padding: 20px 10px ;
 
 }
 #all{
     margin: 20px;
     width: 1600px;
-    height: calc(100vh - 40px) ;
+    height: 100%;
     background-color: rgb(234, 234, 234);
 }
 #aside{
@@ -75,38 +76,38 @@ img{
 
 /* chatbox and messages */
 #chatbox{
-    height: 1000px;    
+    height: calc(100% - 150px);    
     width: 100%;
     overflow-y: scroll;
     background-image: url(../img/mine.jpg);
 }
-.send{
+.sent1{
 
     padding: 20px;
     display: flex;
     justify-content: end;
 }
-.sendmsg{
+.sent{
     position: relative;
     display: flex;
     flex-direction: column;
     background-color: #D5F9BA;
     max-width: 50%;
-    padding: 8px 16px;
+    padding: 8px 26px 8px 10px;
     border-radius: 5px 0px 5px 5px;
 }
-.receive{ 
+.received1{ 
     padding: 20px;
     display: flex;
     justify-content: start;
 }
-.receivemsg{
+.received{
     position: relative;
     display: flex;
     flex-direction: column;
     background-color: #ffffff;
     max-width: 50%;
-    padding: 8px 16px;
+    padding: 8px 26px 8px 10px;
     border-radius: 0px 5px 5px 5px;
 }
 .hour{
@@ -117,19 +118,30 @@ img{
     margin-right: -10px;
     color: rgba(0, 0, 0, 0.500);
 }
-.abs{
+.sentt{
     position: absolute;
     top: -6px;
     right: -4px;
     transform: rotate(90deg);
     color: #D5F9BA;
 }
-.abs2{
+.receivedt{
     position: absolute;
     top: -6px;
     left: -4px;
     transform: rotate(90deg);
     color: #ffffff;
+}
+
+.dropdown{
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    color: #b1b1b1;
 }
 
 .bgnotif{
@@ -166,6 +178,7 @@ img{
     border: 2px solid rgba(0, 0, 0, 0.205);
     outline: none;
     padding: 5px;
+    border-radius: 5px;
 }
 
 .search{
@@ -178,7 +191,29 @@ img{
     justify-content: center;
     align-items: center;
     text-decoration: none;
+    border-radius: 5px;
 }
 .search:hover{
     color: rgb(0, 150, 136);
+}
+
+.lastmsgh{
+    text-align: right;
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    font-size: 0.7em;
+    color: rgba(0, 0, 0, 0.5);
+    font-style: oblique;
+}
+
+.contactsbar{
+    height: calc(100% - 207px);
+    overflow-y: auto;
+}
+
+.prof:hover{
+    cursor: pointer;
+    background-color: #dfdfdf;
+    transition: all 230ms;
 }

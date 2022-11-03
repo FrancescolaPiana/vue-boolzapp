@@ -16,6 +16,8 @@
 <body>
     <div id="foil"  class="d-flex justify-content-center align-items-center">
         <div id="all" class="d-flex" >
+
+
             <div id="aside">
                 <!-- user -->
                 <div class="container">
@@ -61,14 +63,15 @@
                 </div>
 
                 <!-- contacts -->
-                <div class="container">
-                    <div class="row" v-for="(profile,i) in contacts" >
-                        <div class="col gap-3 d-flex align-items-center constrictor">
-                            <img :src="`./img/avatar${contacts[i].avatar}.jpg`" src="" class="" alt="">
+                <div class="container contactsbar">
+                    <div class="row prof"  v-for="(profile, i) in contacts" :key="profile.id" >
+                        <div class="col gap-3 d-flex align-items-center constrictor position-relative">
+                            <img :src="'./img/avatar'+ profile.avatar +'.jpg'" alt="">
                             <div class="align-self-center">
-                                <div class="name fw-bold">{{contacts[i].name}}</div>
-                                <div class="lastmsg">{{contacts[i].messages[0].message}}</div>
+                                <div class="name fw-bold">{{profile.name}}</div>
+                                <div class="lastmsg">{{profile.messages[profile.messages.length-1].message}}</div>
                             </div>
+                            <div class="lastmsgh" >{{profile.messages[profile.messages.length-1].date}}</div>
                         </div>
                     </div>
                 </div>
@@ -80,10 +83,10 @@
                 <div class="container">
                     <div class="row">
                         <div id="usercarosel" class="col gx gap-3 d-flex align-items-center constrictor">
-                            <img src="./img/avatar_1.jpg" class="" alt="">
+                            <img :src="'./img/avatar' + contacts[currentChat].avatar +'.jpg'" class="" alt="">
                             <div class="align-self-center">
-                                <div class="name fw-bold">FFrank 'o Pop</div>
-                                <div class="lastmsg">Ultimo accesso oggi alle: 18:00  </div>
+                                <div class="name fw-bold">{{contacts[currentChat].name}}</div>
+                                <div class="lastmsg">{{contacts[currentChat].messages[contacts[currentChat].messages.length-1].date}}</div>
                             </div>
                         </div>
                         <div id="buttons" class=" custom col gx gap-3 d-flex justify-content-end align-items-center constrictor">
@@ -98,39 +101,17 @@
                     <div class="container">
 
                         <!-- sendmsg facsimile -->
-                        <div class="row">
-                            <div class="send">
-                                <div class="sendmsg">
-                                    Ciao.. come stai?
+                        <div class="row" v-for="(message, index) in contacts[currentChat].messages" :key="index">
+                            <div :class="message.status +'1'" >
+                                <div :class="message.status">
+                                    {{message.message}}
                                     <div class="hour">04:10</div>
-                                    <div class="abs"><i class="fa-solid fa-play"></i></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- receivemsg facsimile -->
-                        <div class="row">
-                            <div class="receive">
-                                <div class="receivemsg">
-                                    Ciao, come va la vita? spero stia andando bene anche il tuo percorso di studi con Boolean.
-                                    <div class="hour">15:00</div>
-                                    <div class="abs2"><i class="fa-solid fa-play"></i></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- sendmsg facsimile -->
-                        <div class="row">
-                            <div class="send">
-                                <div class="sendmsg">
-                                    Molto bene almeno pero ora.
-                                    <div class="hour">15:13</div>
-                                    <div class="abs"><i class="fa-solid fa-play"></i></div>
+                                    <div :class="message.status +'t'"><i class="fa-solid fa-play"></i></div>
+                                    <div class="dropdown" ><i class="fa-solid fa-caret-down"></i></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
 
                 <div class="container">
