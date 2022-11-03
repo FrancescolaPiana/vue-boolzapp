@@ -13,6 +13,8 @@
 #aside{
     height: 100%;
     width: 35%;
+    box-shadow: 8px 0px 10px -6px rgba(0, 0, 0, 0.144);
+    z-index: 2;
 }
 #main{
     /* background-color: rgb(166, 117, 211); */
@@ -90,11 +92,12 @@ img{
 .sent{
     position: relative;
     display: flex;
-    flex-direction: column;
     background-color: #D5F9BA;
-    max-width: 50%;
-    padding: 8px 26px 8px 10px;
+    max-width: 60%;
+    padding: 8px 10px 8px 10px;
     border-radius: 5px 0px 5px 5px;
+    margin-right: 80px;
+    cursor: context-menu;
 }
 .received1{ 
     padding: 20px;
@@ -104,11 +107,11 @@ img{
 .received{
     position: relative;
     display: flex;
-    flex-direction: column;
     background-color: #ffffff;
-    max-width: 50%;
-    padding: 8px 26px 8px 10px;
+    max-width: 60%;
+    padding: 8px 10px 8px 10px;
     border-radius: 0px 5px 5px 5px;
+    margin-left: 80px;
 }
 .hour{
     font-size: 9px;
@@ -134,14 +137,45 @@ img{
 }
 
 .dropdown{
-    width: 26px;
-    height: 26px;
-    position: absolute;
-    top: 0;
-    right: 0;
+    position: relative;
     display: flex;
     justify-content: center;
+    align-items: center;
     color: #b1b1b1;
+    align-self: flex-start;
+    transform:translateY(-5);
+    opacity: 0;
+    transition: all 0.15s;
+}
+
+.dropdowncontent{
+    display: flex;
+    position: absolute;
+    padding: 5px 10px;
+    top: 20px;
+    gap: 8px;
+    transform: translateX(80px);
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.dropdown:hover .dropdowncontent{
+    transform: translateX(0px);
+    opacity: 1;
+    transition: all 0.3s;
+}
+
+.sent:hover .dropdown{
+    transition: 0.5s ;
+    transform: translateY(-5px);
+    opacity: 1;
+    cursor: pointer;
+}
+.received:hover .dropdown{
+    transition: 0.5s ;
+    transform: translateY(-5px);
+    opacity: 1;
+    cursor: pointer;
 }
 
 .bgnotif{
@@ -201,7 +235,7 @@ img{
     text-align: right;
     position: absolute;
     top: 3px;
-    right: 5px;
+    right: 12px;
     font-size: 0.7em;
     color: rgba(0, 0, 0, 0.5);
     font-style: oblique;
@@ -212,8 +246,58 @@ img{
     overflow-y: auto;
 }
 
+.prof{
+    border-top: 1px solid #cecece;
+
+}
+
 .prof:hover{
     cursor: pointer;
-    background-color: #dfdfdf;
+    background-color: #cecece;
     transition: all 230ms;
+}
+
+.btnsp{
+    background-color: rgb(255, 255, 255);
+    color: gray;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 50%;
+    font-size: small;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.2s;
+    box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.534);
+}
+
+.del:hover{
+    color: #961600;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    transition: all 0.3s;
+}
+
+/* .del:hover .indel{
+    
+} */
+
+.copy:hover{
+    color: #004696;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    transition: all 0.3s;
+}
+
+.share:hover{
+    color: #009688;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    transition: all 0.3s;
 }

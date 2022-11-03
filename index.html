@@ -105,9 +105,16 @@
                             <div :class="message.status +'1'" >
                                 <div :class="message.status">
                                     {{message.message}}
-                                    <div class="hour">04:10</div>
+                                    <div class="hour">{{message.date}}</div>
                                     <div :class="message.status +'t'"><i class="fa-solid fa-play"></i></div>
-                                    <div class="dropdown" ><i class="fa-solid fa-caret-down"></i></div>
+                                    <div class="dropdown" >
+                                        <i class="fa-solid fa-angle-down"></i>
+                                        <div class="dropdowncontent">
+                                            <a class="btnsp del" href=""><i class="indel fa-solid fa-trash"></i></a>
+                                            <a class="btnsp copy" href=""><i class="incopy fa-regular fa-copy"></i></a>
+                                            <a class="btnsp share" href=""><i class="inshare fa-solid fa-share"></i></a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
