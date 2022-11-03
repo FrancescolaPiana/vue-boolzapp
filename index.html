@@ -56,8 +56,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="col d-flex align-items-center constricto c2">
-                            <a class="search" href=""><i class="fa-solid fa-magnifying-glass"></i></a>
-                            <input id="research" type="text" placeholder="Cerca o inizia una nuova chat" >
+                            <span class="search"><i class="fa-solid fa-magnifying-glass"></i></span>
+                            <input id="research" type="text" placeholder="Cerca o inizia una nuova chat" 
+                            v-model.trim="researchProfile">
                         </div>
                     </div>
                 </div>
@@ -65,14 +66,14 @@
                 <!-- contacts -->
                 <div class="container contactsbar">
                     <div class="row prof" :class="{'active' : index === currentChat}" 
-                    v-for="(profile, i) in contacts" :key="profile.id" @click="setChat(profile.id)" >
+                    v-for="(profile, i) in filteredContacts" :key="profile.id" @click="setChat(profile.id)" >
                         <div class="col gap-3 d-flex align-items-center constrictor position-relative">
                             <img :src="'./img/avatar'+ profile.avatar +'.jpg'" alt="">
                             <div class="align-self-center">
                                 <div class="name fw-bold">{{profile.name}}</div>
-                                <div class="lastmsg">{{profile.messages[profile.messages.length-1].message}}</div>
+                                <div class="lastmsg">{{getLastMessage(profile)}}</div>
                             </div>
-                            <div class="lastmsgh" >{{profile.messages[profile.messages.length-1].date}}</div>
+                            <div class="lastmsgh" >{{getLastMessageDate(profile)}}</Div>
                         </div>
                     </div>
                 </div>
@@ -103,7 +104,7 @@
                 <div id="chatbox">
                     <div class="container">
 
-                        <!-- sendmsg facsimile -->
+                        <!-- msg  -->
                         <div class="row" v-for="(message, index) in contacts[currentChat].messages" :key="index">
                             <div :class="message.status +'1'" >
                                 <div :class="message.status">
@@ -113,6 +114,7 @@
                                     <div class="dropdown" >
                                         <i class="fa-solid fa-angle-down"></i>
                                         <div class="dropdowncontent">
+                                            <a class="btnsp info" href=""><i class="indel fa-solid fa-info"></i></i></a>
                                             <a class="btnsp del" href=""><i class="indel fa-solid fa-trash"></i></a>
                                             <a class="btnsp copy" href=""><i class="incopy fa-regular fa-copy"></i></a>
                                             <a class="btnsp share" href=""><i class="inshare fa-solid fa-share"></i></a>
@@ -121,6 +123,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
 
@@ -131,7 +134,7 @@
                             <a href=""><i class="iconscolor fa-regular fa-face-smile"></i></a>
                         </div>
                         <div  class="col gx gap-3 d-flex justify-content-center align-items-center constrictor2">
-                            <input id="input" type="text" name="" id="" v-model="newMessage" @keyup.enter="sendMessage()" >
+                            <input id="input" type="text" name="" id="" v-model.trim="newMessage" @keyup.enter="sendMessage" >
                         </div>
                         <div id="rec" class="col-1 d-flex justify-content-end align-items-center constrictor2">
                             <a href=""><i class="iconscolor fa-solid fa-microphone"></i></a>

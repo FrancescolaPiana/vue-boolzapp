@@ -181,6 +181,7 @@ const app = createApp({
             contacts,
             currentChat: 0,
             newMessage: '',
+            researchProfile: ''
         }
     },
 
@@ -193,6 +194,9 @@ const app = createApp({
 
         // sent a message
         sendMessage(){
+            if (!this.newMessage) { return;
+                
+            }
             const d = new Date();
             let newDate = d.toDateString();
             const newsentMessage = 
@@ -204,20 +208,48 @@ const app = createApp({
                 this.contacts[this.currentChat].messages.push(newsentMessage)
             this.newMessage = ''
 
-            // function respond after one sec
-            setTimeout(() => {
-                const newReceivedMessage = 
-                {
-                    date: newDate,
-                    message: 'Si okay Ti faccio sapere in giornata',
-                    status: 'received'
-                    }
-                this.contacts[this.currentChat].messages.push(newReceivedMessage)
-            }, 1000)
-        }
+        // function respond after one sec
+        setTimeout(() => {
+            const newReceivedMessage = 
+            {
+                date: newDate,
+                message: 'Si okay Ti faccio sapere in giornata',
+                status: 'received'
+            }
+            this.contacts[this.currentChat].messages.push(newReceivedMessage)
+        }, 1000)
+        },
+
+        getLastMessageDate(profile){
+            const data = profile.messages.filter((message) => {
+                return message.status === 'received';
+            })
+            console.log(data);
+            return data[data.length-1].date;
+        },
+
+        getLastMessage(profile){
+            const msg = profile.messages.filter((message) => {
+                return message.status === 'received';
+            })
+            console.log(msg);
+            return msg[msg.length-1].message;
+        },
+
+
     },
 
     computed: {
+        // creazione nuovo arrai filtrato non distruttivo
+        filteredContacts(){
+            return this.contacts.filter((profile) => {
+                const name = profile.name.toLowerCase() 
+                console.log(name);
+                return name.includes(this.researchProfile.toLowerCase())
+            })
+        }
+         
+
     },
 
     mounted(){
