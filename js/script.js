@@ -191,6 +191,7 @@ const app = createApp({
             )
         },
 
+        // sent a message
         sendMessage(){
             const d = new Date();
             let newDate = d.toDateString();
@@ -202,6 +203,17 @@ const app = createApp({
                 }
                 this.contacts[this.currentChat].messages.push(newsentMessage)
             this.newMessage = ''
+
+            // function respond after one sec
+            setTimeout(() => {
+                const newReceivedMessage = 
+                {
+                    date: newDate,
+                    message: 'Si okay Ti faccio sapere in giornata',
+                    status: 'received'
+                    }
+                this.contacts[this.currentChat].messages.push(newReceivedMessage)
+            }, 1000)
         }
     },
 
