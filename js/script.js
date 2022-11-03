@@ -184,13 +184,17 @@ const app = createApp({
     },
 
     methods: {
-
+        setChat(id){
+            this.currentChat = this.contacts.findIndex((profile) => profile.id === id
+            )
+        }
     },
 
     computed: {
     },
 
     mounted(){
+       
     },
 
     created(){

@@ -64,7 +64,8 @@
 
                 <!-- contacts -->
                 <div class="container contactsbar">
-                    <div class="row prof"  v-for="(profile, i) in contacts" :key="profile.id" >
+                    <div class="row prof" :class="{'active' : index === currentChat}" 
+                    v-for="(profile, i) in contacts" :key="profile.id" @click="setChat(profile.id)" >
                         <div class="col gap-3 d-flex align-items-center constrictor position-relative">
                             <img :src="'./img/avatar'+ profile.avatar +'.jpg'" alt="">
                             <div class="align-self-center">
@@ -86,7 +87,7 @@
                             <img :src="'./img/avatar' + contacts[currentChat].avatar +'.jpg'" class="" alt="">
                             <div class="align-self-center">
                                 <div class="name fw-bold">{{contacts[currentChat].name}}</div>
-                                <div class="lastmsg">{{contacts[currentChat].messages[contacts[currentChat].messages.length-1].date}}</div>
+                                <div class="lastmsg">Ultimo accesso:{{contacts[currentChat].messages[contacts[currentChat].messages.length-1].date}}</div>
                             </div>
                         </div>
                         <div id="buttons" class=" custom col gx gap-3 d-flex justify-content-end align-items-center constrictor">
