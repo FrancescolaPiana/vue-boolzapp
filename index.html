@@ -80,7 +80,8 @@
     
 
             <div id="main" class="d-flex flex-column justify-content-between">
-                <!-- milestone 1 grapichs and messages -->
+
+                <!-- actual chat user -->
                 <div class="container">
                     <div class="row">
                         <div id="usercarosel" class="col gx gap-3 d-flex align-items-center constrictor">
@@ -98,6 +99,7 @@
                     </div>
                 </div>
 
+                <!-- chatbox -->
                 <div id="chatbox">
                     <div class="container">
 
@@ -122,13 +124,14 @@
                     </div>
                 </div>
 
+                <!-- typebox -->
                 <div class="container">
                     <div class="row">
                         <div id="smile" class="col-1 d-flex justify-content-start align-items-center constrictor2">
                             <a href=""><i class="iconscolor fa-regular fa-face-smile"></i></a>
                         </div>
                         <div  class="col gx gap-3 d-flex justify-content-center align-items-center constrictor2">
-                            <input id="input" type="text" name="" id="">
+                            <input id="input" type="text" name="" id="" v-model="newMessage" @keyup.enter="sendMessage()" >
                         </div>
                         <div id="rec" class="col-1 d-flex justify-content-end align-items-center constrictor2">
                             <a href=""><i class="iconscolor fa-solid fa-microphone"></i></a>

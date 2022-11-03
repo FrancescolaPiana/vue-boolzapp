@@ -179,14 +179,29 @@ const app = createApp({
     data(){
         return {
             contacts,
-            currentChat: 0
+            currentChat: 0,
+            newMessage: '',
         }
     },
 
     methods: {
+        // on click change carousel chats
         setChat(id){
             this.currentChat = this.contacts.findIndex((profile) => profile.id === id
             )
+        },
+
+        sendMessage(){
+            const d = new Date();
+            let newDate = d.toDateString();
+            const newsentMessage = 
+            {
+                date: newDate,
+                message: this.newMessage,
+                status: 'sent'
+                }
+                this.contacts[this.currentChat].messages.push(newsentMessage)
+            this.newMessage = ''
         }
     },
 

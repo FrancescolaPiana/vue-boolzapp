@@ -97,7 +97,6 @@ img{
     border-radius: 5px 0px 5px 5px;
     margin-right: 80px;
     cursor: context-menu;
-    min-width: 100px;
 }
 .received1{ 
     padding: 20px;
@@ -112,7 +111,6 @@ img{
     padding: 8px 10px 20px 10px;
     border-radius: 0px 5px 5px 5px;
     margin-left: 80px;
-    min-width: 100px;
 }
 .hour{
     position: absolute;
